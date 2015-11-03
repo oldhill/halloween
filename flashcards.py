@@ -1,3 +1,4 @@
+import os
 import random
 import time
 
@@ -5,6 +6,7 @@ DELAY = 10
 
 while 1:
   time.sleep(DELAY)
+  os.system('clear')
   useful_powers_of_2 = {7, 8, 10, 16, 20, 30, 32, 40}
   approx = {10: '1 thousand',
             20: '1 million',
