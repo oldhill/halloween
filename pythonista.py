@@ -59,5 +59,21 @@ for (thing, count) in STUFF:
   grouped_stuff[thing].append(count)
 print 'Grouped stuff: %s' % grouped_stuff
 
-# Building & Splitting Dictionaries (start here)
+# Zipping up iterables
+print ''
+given = ['John', 'Eric', 'Terry', 'Michael']
+family = ['Cleese', 'Idle', 'Gilliam', 'Palin']
+print zip(given, family)
+
+# Enumerate is a generator
+print ''
+items = 'zero one two three'.split()
+e = enumerate(items)
+print 'Enumerate generator mem address: %s' % e
+print 'Is that same as the CPython id in hex (mem address?) %s' % hex(id(e))
+print '\nOK let\'s iterate a couple times:'
+print e.next()
+print e.next()
+
+# Start here: Other languages have "variables"
 print ''
