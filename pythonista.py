@@ -75,5 +75,51 @@ print '\nOK let\'s iterate a couple times:'
 print e.next()
 print e.next()
 
-# Start here: Other languages have "variables"
+# Other languages have "variables"
 print ''
+a = 2
+b = 2
+print 'Memory addresses of those names: %s, %s' % (hex(id(a)), hex(id(a)))
+
+# Default parameter values
+print ''
+
+def bad_append(new_item, a_list=[]):
+  """ a_list is initialized at function definition time... uh oh... """
+  a_list.append(new_item)
+  return a_list
+
+print bad_append('one')
+print bad_append('two')
+
+# Advanced % string formatting
+print ''
+from pprint import pprint
+print 'Locals: '
+pprint(locals())
+print '\nGlobals: '
+pprint(globals())
+
+# List comps
+print ''
+print [n ** 2 for n in xrange(10)]
+print [n ** 2 for n in xrange(10) if n % 2]
+
+# Generator expressions (1)
+total = 0
+for num in range(1, 101):
+  total += num * num
+print 'looped: %i' % total
+
+print 'lc: %i' % sum([num * num for num in range(1, 101)])
+
+print 'genexp: %i' % sum(num * num for num in xrange(1, 101))
+
+print 'genexp lazy eval:'
+my_genexp = (num * num for num in xrange(1, 101))
+print my_genexp
+for i in xrange(1, 5):
+  print my_genexp.next()
+
+
+
