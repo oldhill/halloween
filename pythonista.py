@@ -121,5 +121,34 @@ print my_genexp
 for i in xrange(1, 5):
   print my_genexp.next()
 
+# Sorting with keys
+print ''
+my_list = ['hi', 'there', 'x', 'z', 'longword', 'bye']
+my_list.sort(key=len)
+print my_list
+my_list.sort(key=str.lower)  # alphabetically regardless of case
+print my_list
 
+# Generators full stop
+print ''
+def my_range_generator(stop):
+  v = 0
+  while v < stop:
+    yield v
+    v += 1
 
+print 'Generated ints w conditional stop:'
+for i in my_range_generator(5):
+  print i
+
+def my_other_range_generator(stop):
+  v = 0
+  while 1:
+    yield v
+    v += 1
+    if v == stop:
+      raise StopIteration
+
+print '\nGenerated ints w StopIteration raise:'
+for i in my_other_range_generator(5):
+  print i
