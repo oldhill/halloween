@@ -56,11 +56,16 @@ my_string = """ Dear X,
 
                 Check out https://www.python.org/ for more info!
 
+                Some more URLs: http://miniramp.net/
+                                https://google.com/
+
                 Best,
                 Y
             """
-# http urls
-pattern = re.compile('http[:/.a-z]+/')
+# http/s URLs
+pattern = re.compile('http[s]*[:]+[/.a-z]+/')
 print re.findall(pattern, my_string)
 
-# TODO: http or https. .com or .org or .net
+# .com, .org, but not .net
+pattern = re.compile('http[s]*[:]+[/.a-z]+[com|org]/')  # not quite right... shouldn't be a char group
+print re.findall(pattern, my_string)
