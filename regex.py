@@ -54,18 +54,29 @@ my_string = """ Dear X,
                 although the dynamic type system can wreak havoc in
                 large codebases. Highly recommended!
 
-                Check out https://www.python.org/ for more info!
+
+
+                Check out https://python.org/ for more info!
 
                 Some more URLs: http://miniramp.net/
                                 https://google.com/
+                                https://google.coormg/
 
                 Best,
                 Y
             """
+
 # http/s URLs
 pattern = re.compile('http[s]*[:]+[/.a-z]+/')
 print re.findall(pattern, my_string)
 
-# .com, .org, but not .net
-pattern = re.compile('http[s]*[:]+[/.a-z]+[com|org]/')  # not quite right... shouldn't be a char group
+# .com, .org, but not .net (or .coormg)
+print ''
+pattern = re.compile('http(?=([:/a-z]+.(com|org)))')  # still not right...
 print re.findall(pattern, my_string)
+
+# split on two or more newlines
+print ''
+split_string = re.split('[\n+]{2,}', my_string)
+for i in split_string:
+  print 'Group: %s' % i.strip()
