@@ -70,6 +70,7 @@ my_string = """ Dear X,
 pattern = re.compile('http[s]*[:]+[/.a-z]+/')
 print re.findall(pattern, my_string)
 
+# TODO(oldhill) return to this someday and fix this mess
 # .com, .org, but not .net (or .coormg)
 print ''
 pattern = re.compile('http(?=([:/a-z]+.(com|org)))')  # still not right...
@@ -80,3 +81,18 @@ print ''
 split_string = re.split('[\n+]{2,}', my_string)
 for i in split_string:
   print 'Group: %s' % i.strip()
+
+# (wip) dispatch a 'request' to route to a matching handler
+print ''
+def dispatch(url):
+  dispatcher = [
+    ('^[a-z]+$', 'some_letters'),
+    ('^[0-9]+$', 'some_numbers'),
+  ]
+  for pattern, handler in dispatcher:
+    if re.match(pattern, url):
+      return handler
+
+print dispatch('hi')
+print dispatch('123')
+print dispatch('hi123')
