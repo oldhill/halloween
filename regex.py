@@ -86,13 +86,23 @@ for i in split_string:
 print ''
 def dispatch(url):
   dispatcher = [
-    ('^[a-z]+$', 'some_letters'),
-    ('^[0-9]+$', 'some_numbers'),
+    ('^[a-z]+$', 'just_some_letters'),
+    ('^[0-9]+$', 'just_some_numbers'),
+    ('^/account/{0,1}$', 'accounts'),
+    ('^/account/[0-9]+$', 'specific_account'),
+    # TODO: ('^/account/[0-9]+?.*=.$', 'specific_account_with_query_param'),
+
   ]
   for pattern, handler in dispatcher:
     if re.match(pattern, url):
       return handler
+  return '404 :D'
 
-print dispatch('hi')
-print dispatch('123')
-print dispatch('hi123')
+print 'Do the \'tests\' pass?'
+print dispatch('hi') == 'just_some_letters'
+print dispatch('123') == 'just_some_numbers'
+print dispatch('hi123') == '404 :D'
+print dispatch('/account') == 'accounts'
+print dispatch('/account/') == 'accounts'
+print dispatch('/account/123') == 'specific_account'
+print dispatch('/account/123abc') == '404 :D'
