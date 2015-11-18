@@ -90,8 +90,9 @@ def dispatch(url):
     ('^[0-9]+$', 'just_some_numbers'),
     ('^/account/{0,1}$', 'accounts'),
     ('^/account/[0-9]+$', 'specific_account'),
-    # TODO: ('^/account/[0-9]+?.*=.$', 'specific_account_with_query_param'),
-
+    # Not quite right, needs to support URL encoding w/ %
+    ('^/account/[0-9]+\?[a-zA-Z_]+=[a-zA-Z0-9_]+$',
+     'specific_account_with_query_param'),
   ]
   for pattern, handler in dispatcher:
     if re.match(pattern, url):
@@ -106,3 +107,6 @@ print dispatch('/account') == 'accounts'
 print dispatch('/account/') == 'accounts'
 print dispatch('/account/123') == 'specific_account'
 print dispatch('/account/123abc') == '404 :D'
+print (dispatch('/account/123?some_para=hi123')
+       == 'specific_account_with_query_param')
+print dispatch('/account/123??some_para=hi123') == '404 :D'
