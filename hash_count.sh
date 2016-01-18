@@ -38,3 +38,38 @@ my_hash=$(echo 0 | openssl dgst -sha256)
 echo "SHA1 hash of 0: $my_hash"
 echo "Length: ${#my_hash}"
 
+# more shell things
+DATE=$(date)
+echo "Hi this is the date $DATE"
+
+# loops
+for i in $(seq 5);
+do
+  echo $i
+done
+
+COUNTER=0
+while [ $COUNTER -lt 5 ]; do
+  echo "The counter is at $COUNTER"
+  let COUNTER=COUNTER+1
+done
+
+# menu with select
+OPTIONS="Hi Continue"
+select opt in $OPTIONS; do
+  if [ "$opt" == "Continue" ]; then
+    echo "Bye!"
+    break
+  elif [ "$opt" = "Hi" ]; then
+    echo "Hi World"
+  else
+    echo "invalid option!"
+  fi
+done
+
+echo "past the menu"
+
+# user input with read
+echo "Hi, what is your name?"
+read NAME
+echo "Hi, $NAME!"
