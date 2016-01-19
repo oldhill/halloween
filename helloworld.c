@@ -27,4 +27,18 @@ int main()
     printf ("i=%d\n", i);
   }
 
+  // https://www.seas.gwu.edu/~simhaweb/C/lectures/module2/module2
+  int x = 5;
+
+  int *intPtr;
+
+  // print mem address of variable i
+  printf ("Variable x is located at memory address %lu\n", &x);
+
+  // extract address of var i into the pointer
+  intPtr = & x;
+  printf ("The int at memory location %lu is %d\n", intPtr, *intPtr);
+
+  // TODO: examine compiler warnings
+
 }
