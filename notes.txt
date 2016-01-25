@@ -1,4 +1,4 @@
 C notes
 * hello world tutorial: https://www.seas.gwu.edu/~simhaweb/C/lectures/module1/module1.html
 * gcc command line options: https://gcc.gnu.org/onlinedocs/gcc-2.95.2/gcc_2.html
-
+* pointer basics: http://cslibrary.stanford.edu/106/

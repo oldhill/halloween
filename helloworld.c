@@ -27,17 +27,31 @@ int main()
     printf ("i=%d\n", i);
   }
 
+  // numerical types
+  float pi = 3.14F;
+  double doublePi = 314.159265E-2;  // the exponent
+  long double lDoublePi = 3.14159265358979L;
+
+  // print em
+  printf ("float Pi = %7.5e\n", pi);  // ... exponent format?
+  printf ("double Pi = %lf\n", doublePi);
+  printf ("(not actually?) long double Pi = %Lf\n", lDoublePi);
+
+
   // https://www.seas.gwu.edu/~simhaweb/C/lectures/module2/module2
+  // * is used to declare and/or dereference pointers
+  // & gets the memory address
   int x = 5;
 
   int *intPtr;
 
-  // print mem address of variable i
-  printf ("Variable x is located at memory address %lu\n", &x);
+  // print mem address of variable x
+  printf ("Variable x is located at memory address %lu\n", (int long)&x);
 
-  // extract address of var i into the pointer
+  // extract address of var x into the pointer... that is... the pointer
+  // now points to the memory address holding x
   intPtr = & x;
-  printf ("The int at memory location %lu is %d\n", intPtr, *intPtr);
+  printf ("The int at memory location %lu is %d\n", (int long)intPtr, *intPtr);
 
   // TODO: examine compiler warnings
 
