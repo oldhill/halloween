@@ -53,6 +53,8 @@ int main()
   intPtr = & x;
   printf ("The int at memory location %lu is %d\n", (int long)intPtr, *intPtr);
 
-  // TODO: examine compiler warnings
+  // "The dereference operation starts at the pointer and follows its arrow over to access its pointee.
+  //  The goal may be to look at the pointee state or to change the pointee state."
+  // - parlante, http://cslibrary.stanford.edu/106/
 
 }
