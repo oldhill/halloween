@@ -32,6 +32,10 @@ void the_for()
   }
 }
 
+// symbolic constants
+#define CONST_THREE 3
+#define CONST_ZERO 0
+
 // yeah
 int main()
 {
@@ -47,6 +51,13 @@ int main()
   // some loops though
   the_while();
   the_for();
+
+  // use symbolic constants
+  printf("This constant should be a zero: %d\n", CONST_ZERO);
+  for (int j = 0; j < CONST_THREE; j = j + 1)
+  {
+    printf("Counting up to a symbolic constant: %d\n", j);
+  }
 
   return 0;
 }

@@ -12,6 +12,7 @@ FAQ / curiosities:
 * static vs. dynamic memory allocation in c: https://stackoverflow.com/questions/8385322/difference-between-static-memory-allocation-and-dynamic-memory-allocation
 * why does printf not flush after the call unless a newline is in the format string? https://stackoverflow.com/questions/1716296/why-does-printf-not-flush-after-the-call-unless-a-newline-is-in-the-format-strin
 * As of Mac OS X 10.5, libgmalloc aligns the start of allocated buffers on 16-byte boundaries by default https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/libgmalloc.3.html
+* What's the point of symbolic constants? https://stackoverflow.com/questions/5062019/what-is-the-point-of-symbolic-constants
 
 Personal notes:
 * sample working gcc compilation command with output: gcc -o bin/moar_pointers -ansi moar_pointers.c
