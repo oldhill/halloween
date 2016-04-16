@@ -17,14 +17,15 @@ class Memcache():
   def set(self, new_key, new_val):
     """ Set value and evict LRU item if necessary """
 
-    if len(self.items) > self.size:
+    if len(self.items) >= self.size:
       lru_time = datetime.datetime.utcnow()
       oldest_key = None
       for k, v in self.items.iteritems():
         if v['accessed'] < lru_time:
           lru_time = v['accessed']
           oldest_key = k
-      self.items.pop(k)
+      print 'Evicting LRU key %s to maintain size %s' % (oldest_key, self.size)
+      self.items.pop(oldest_key)
 
     self.items[new_key] = {
       'value': new_val,
