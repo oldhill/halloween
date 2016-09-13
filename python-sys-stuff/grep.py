@@ -6,17 +6,18 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('search_string',
-                    help='string to grep for')
+parser.add_argument('term',
+                    help='search term to grep for')
 
-parser.add_argument('--sys',
+parser.add_argument('--system',
                     help='shell out to system grep',
                     action='store_true')
 
 
-all_args = parser.parse_args()
+args = parser.parse_args()
 
-print 'Here is the positional arg you entered: %s' % all_args.echo
-
-
-
+print 'OK going to grep the current directory for %s.' % args.term
+if args.system:
+    print 'shelling out to system grep'
+else:
+    print 'using python instead of system grep'
